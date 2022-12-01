@@ -10,10 +10,10 @@ for file in sc_list:
     if file.endswith(".mp3") :
         #importing file from location by giving its path
         sound = AudioSegment.from_mp3("podcasts-portion/"+file)
+        sound = sound.set_channels(1)
 
         name = file.split(".mp3")
-
-        sound.export("wav/"+name[0]+".wav", format="wav")
+        sound.export("wav-mono/"+name[0]+".wav", format="wav")
 
         print( "{} audio trimmed: ".format(i, 1) + name[0] + ".wav" )
 
